@@ -494,7 +494,7 @@ app.post('/ajout/retrait', (req, res) => {
     const nom = req.body.nom;
     const bank = req.body.bank;
 
-  con.query('INSERT INTO retraits VALUES(NULL,?,?,?,?,?,?)', [tosend, toreceive, airtelmoney, rib, nom, bank], (err, result) => {
+  con.query('INSERT INTO retraits VALUES(NULL,"tosend", "toreceive", "airtelmoney","rib", "nom", "bank")', [tosend, toreceive, airtelmoney, rib, nom, bank], (err, result) => {
     if (err) {
       console.log(err);
     } else {
