@@ -500,7 +500,7 @@ app.post('/ajout/retrait', (req, res) => {
     } else {
     const id_retrait = result.insertId; // Récupération de l'ID généré
 
-      res.send({ id_retrait: id_retrait });
+      res.send({ message: id_retrait });
     }
   });
 });
