@@ -498,7 +498,7 @@ app.post('/ajout/retrait', (req, res) => {
     if (err) {
       console.log(err);
     } else {
-    const id_retrait = result; // Récupération de l'ID généré
+    const id_retrait = result.insertId; // Récupération de l'ID généré
 
       res.send({ id_retrait: id_retrait });
     }
