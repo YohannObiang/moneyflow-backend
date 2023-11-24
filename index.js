@@ -335,77 +335,20 @@ app.get('/closestevents', (req, res) => {
   });
 });
   
-// Lister les categories de billet
-app.get('/categoriesbillet', (req, res)=>{
+// Lister les retraits
+app.get('/retraits', (req, res)=>{
     
-    con.query('SELECT * FROM categoriesbillet',(err,result)=>{
+    con.query('SELECT * FROM retraits',(err,result)=>{
         if(err) res.status(500).send(err)
         
         res.status(200).json(result)
     })
 })
 
-// Lister les details d'une categorie de billet
-app.get('/categoriesbillet/:id', (req, res)=>{
+
+app.get('/retraits/:id', (req, res)=>{
     
-  con.query('SELECT * FROM categoriesbillet WHERE id_categoriesbillet=?',[req.params.id],(err,result)=>{
-      if(err) res.status(500).send(err)
-      
-      res.status(200).json(result)
-  })
-})
-
-app.get('/evenement/categoriesbillet/:id', (req, res)=>{
-    
-  con.query('SELECT * FROM categoriesbillet WHERE id_evenement=?',[req.params.id],(err,result)=>{
-      if(err) res.status(500).send(err)
-      
-      res.status(200).json(result)
-  })
-})
-
-
-// Lister les evenements d'un organisateur
-app.get('/evenements/organisateur/:id', (req, res)=>{
-    
-    con.query('SELECT * FROM evenements WHERE id_organisateur=?',[req.params.id],(err,result)=>{
-        if(err) res.status(500).send(err)
-        
-        res.status(200).json(result)
-    })
-})
-
-app.get('/billetvendu/:id', (req, res)=>{
-    
-  con.query('SELECT * FROM billetsvendus WHERE id_billetvendu=?',[req.params.id],(err,result)=>{
-      if(err) res.status(500).send(err)
-      
-      res.status(200).json(result)
-  })
-})
-
-app.get('/organisateur/:id', (req, res)=>{
-    
-  con.query('SELECT * FROM organisateurs WHERE id=?',[req.params.id],(err,result)=>{
-      if(err) res.status(500).send(err)
-      
-      res.status(200).json(result)
-  })
-})
-
-
-app.get('/billetsvendus/categoriebillet/:id', (req, res)=>{
-    
-  con.query('SELECT * FROM billetsvendus WHERE id_categoriebillet=?',[req.params.id],(err,result)=>{
-      if(err) res.status(500).send(err)
-      
-      res.status(200).json(result)
-  })
-})
-
-app.get('/billetsvendus/evenement/:id', (req, res)=>{
-    
-  con.query('SELECT * FROM billetsvendus WHERE id_evenement=?',[req.params.id],(err,result)=>{
+  con.query('SELECT * FROM retraits WHERE id_retrait=?',[req.params.id],(err,result)=>{
       if(err) res.status(500).send(err)
       
       res.status(200).json(result)
